@@ -1,4 +1,5 @@
 import HeartSVG from "./HeartSVG";
+import {Component} from 'react';
 
 const colors = [
     '#b8e3f5',
@@ -11,16 +12,18 @@ const colors = [
 
 //Math.floor(Math.random() * colors.length) integer between 0 to 6
 
-const CandyColoredHeart = (props) => {
-    const randomCol = colors[Math.floor(Math.random() * colors.length)]//holds random selection from our array of color Math.random() return 0 or 1 float
-    return (
-        <div className='heart'>
-            <div className='heart-img'>
-                <HeartSVG col={randomCol} />
+class CandyColoredHeart extends Component {
+    render() {
+        const randomCol = colors[Math.floor(Math.random() * colors.length)]//holds random selection from our array of color Math.random() return 0 or 1 float
+        return (
+            <div className='heart'>
+                <div className='heart-img'>
+                    <HeartSVG col={randomCol} />
+                </div>
+                <p className='heart-message'>{this.props.msg}</p>
             </div>
-            <p className='heart-message'>{props.msg}</p>
-        </div>
-    )
+        )
+    }
 }
 
 export default CandyColoredHeart;
